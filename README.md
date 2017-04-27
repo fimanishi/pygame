@@ -1,2 +1,2 @@
 # pygame
-Game created on pygame
+Game created with pygame
