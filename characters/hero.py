@@ -3,6 +3,8 @@
 from characters.base import Character
 
 class Hero(Character):
+
+    # all movements don't allow the hero to exit the screen
     def move_up(self):
         if self.y - self.increment < 0 :
             self.y = 0

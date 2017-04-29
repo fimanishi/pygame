@@ -6,6 +6,7 @@ import os
 from characters.enemy import Enemy
 from characters.hero import Hero
 
+# compiles all the hero movements in one function
 def hero_movement(hero):
     if pygame.key.get_pressed()[pygame.K_DOWN]:
         hero.move_down()
@@ -16,26 +17,31 @@ def hero_movement(hero):
     elif pygame.key.get_pressed()[pygame.K_RIGHT]:
         hero.move_right()
 
+# set all enemies to move randomly
 def enemy_movement(chars_dict):
     for i in chars_dict.keys():
         if i != "hero":
             chars_dict[i].move_random()
 
+# displays all goblins
 def goblins_display(chars_dict):
     for i in chars_dict.keys():
         if i != "hero" and i != "monster":
             chars_dict[i].display()
 
+# identifies if a goblin caught the hero
 def enemy_catch(chars_dict):
     for i in chars_dict.keys():
         if i != "hero" and i != "monster":
             if chars_dict[i].catch(chars_dict["hero"]) == True:
                 return True
 
+# set the characters in random positions
 def chars_random_position(chars_dict):
     for i in chars_dict.values():
         i.random_position()
 
+# creates a dictionary with all default characters
 def create_chars_dict(bg_width, bg_height, screen):
     goblins = 3
     # creates a dictionary of the characters with the hero and the monster

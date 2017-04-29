@@ -10,6 +10,7 @@ class Enemy(Character):
         self.time = time
         self.counter = 1
 
+    # moves in the random direction
     def move_random(self):
         if self.counter == self.time * 60:
             self.counter = 1
@@ -18,6 +19,7 @@ class Enemy(Character):
             self.counter += 1
             return self.display()
 
+    # choses randomly a direction to move
     def random_choice(self):
         choice = random.choice(["up", "down", "left", "right", "rightup", "rightdown", "leftup", "leftdown"])
         if choice == "up":
@@ -37,6 +39,7 @@ class Enemy(Character):
         elif choice == "leftdown":
             return self.move_leftdown()
 
+    # all movements allow to exit screen and enter from the opposite side
     def move_rightup(self):
         if self.y - self.increment + self.height < 0 :
             self.y = self.bg_height + self.y - self.increment

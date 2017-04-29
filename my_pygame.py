@@ -132,10 +132,10 @@ def main():
                 while clear == False:
                     # reposition all the characaters randomly
                     mechanics.engines.chars_random_position(chars_dict)
-
+                    # checks if the hero was generated touching the monster, if yes redo
                     if chars_dict["hero"].catch(chars_dict["monster"]) == True:
                         mechanics.engines.chars_random_position(chars_dict)
-                    # checks if any of the goblins caught the hero
+                    # checks if the goblins were generated touching the hero, if yes redo
                     elif mechanics.engines.enemy_catch(chars_dict) == True:
                         mechanics.engines.chars_random_position(chars_dict)
                     else:
